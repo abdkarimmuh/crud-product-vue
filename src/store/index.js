@@ -48,9 +48,10 @@ export default new Vuex.Store({
       }
     },
     addProduct({ commit, state }, product) {
+      const lastProduct = state.products[state.products.length - 1];
       commit("ADD_PRODUCT", {
         ...product,
-        id: state.products.length + 1,
+        id: lastProduct.id + 1,
       });
     },
     updateProduct({ commit }, product) {
